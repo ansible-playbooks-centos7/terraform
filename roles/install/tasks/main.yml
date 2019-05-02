@@ -1,0 +1,16 @@
+- name: Install jq
+  yum:
+    name: jq
+    state: present
+
+- name: Get latest version number of Terraform
+  shell: echo "$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version')"
+  register: TERRAFORM_VERSION
+
+- name: Install Terraform
+  unarchive:
+    src: "https://releases.hashicorp.com/terraform/{{ TERRAFORM_VERSION.stdout }}/terraform_{{ TERRAFORM_VERSION.stdout }}_linux_amd64.zip"
+    dest: /usr/bin
+    mode: 0755
+    owner: root
+    remote_src: yes
