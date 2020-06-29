@@ -1,11 +1,20 @@
-- name: Install jq
-  yum:
-    name: jq
+---
+- name: Check whether Terraform is installed
+  shell: terraform -version
+  register: TERRAFORM_INSTALLED
+  changed_when: false
+  ignore_errors: true
+
+- name: Install dependencies
+  package:
+    name: unzip
     state: present
+  when: TERRAFORM_INSTALLED is failed
 
 - name: Get latest version number of Terraform
   shell: echo "$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version')"
   register: TERRAFORM_VERSION
+  when: TERRAFORM_INSTALLED is failed
 
 - name: Install Terraform
   unarchive:
@@ -13,4 +22,6 @@
     dest: /usr/bin
     mode: 0755
     owner: root
+    group: root
     remote_src: yes
+  when: TERRAFORM_INSTALLED is failed
