@@ -1,4 +1,5 @@
 ---
-- robertdebock.epel
-- src: https://github.com/ansible-roles-matsumura/jq
-  name: jq
+roles:
+  - name: robertdebock.epel
+  - name: jq
+    src: https://github.com/ansible-roles-matsumura/jq.git
