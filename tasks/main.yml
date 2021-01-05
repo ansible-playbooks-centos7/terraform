@@ -1,23 +1,23 @@
 ---
 - name: Check whether Terraform is installed
-  shell: terraform -version
+  ansible.builtin.shell: terraform -version
   register: TERRAFORM_INSTALLED
   changed_when: false
   ignore_errors: true
 
 - name: Install dependencies
-  package:
+  ansible.builtin.package:
     name: unzip
     state: present
   when: TERRAFORM_INSTALLED is failed
 
 - name: Get latest version number of Terraform
-  shell: echo "$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version')"
+  ansible.builtin.shell: echo "$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version')"
   register: TERRAFORM_VERSION
   when: TERRAFORM_INSTALLED is failed
 
 - name: Install Terraform
-  unarchive:
+  ansible.builtin.unarchive:
     src: "https://releases.hashicorp.com/terraform/{{ TERRAFORM_VERSION.stdout }}/terraform_{{ TERRAFORM_VERSION.stdout }}_linux_amd64.zip"
     dest: /usr/bin
     mode: 0755
