@@ -3,7 +3,7 @@ dependencies: []
 galaxy_info:
   author: mamono210
   company:
-  description: Cureutils installation for Linux.
+  description: Terraform installation for Linux.
   galaxy_tags: []
   license: "license (BSD, MIT)"
   min_ansible_version: 4.5
