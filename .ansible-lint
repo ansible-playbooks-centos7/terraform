@@ -1,0 +1,6 @@
+---
+parseable: true
+warn_list:
+  - command-instead-of-shell
+  - experimental
+  - risky-shell-pipe
