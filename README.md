@@ -1,4 +1,4 @@
-[![](https://github.com/ansible-roles-matsumura/terraform/workflows/build/badge.svg)](https://github.com/ansible-roles-matsumura/terraform/actions?query=workflow%3Abuild)
+[![CircleCI](https://circleci.com/gh/ansible-roles-mamono210/terraform/tree/main.svg?style=svg)](https://circleci.com/gh/ansible-roles-mamono210/terraform/tree/main)
 
 Role Description
 =========
