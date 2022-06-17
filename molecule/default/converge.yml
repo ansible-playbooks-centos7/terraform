@@ -5,6 +5,6 @@
   vars:
     ansible_user: ansible
   roles:
-    - robertdebock.epel
-    - jq
+    - mamono210.epel
+    - mamono210.jq
     - terraform

@@ -18,7 +18,7 @@ None
 Dependencies
 ------------
 
-jq installed before running this role.
+[EPEL](https://docs.fedoraproject.org/en-US/epel/) and [jq](https://github.com/stedolan/jq) installed before running this role.
 
 [ansible-roles-matsumura/jq](https://github.com/ansible-roles-matsumura/jq)
 
@@ -30,8 +30,8 @@ Example Playbook
 - hosts: all
   become: true
   roles:
-    - robertdebock.epel
-    - jq
+    - geerlingguy.epel
+    - andrewrothstein.jq
     - terraform
 ```
 
