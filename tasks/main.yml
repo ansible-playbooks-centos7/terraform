@@ -1,6 +1,6 @@
 ---
 - name: Check whether Terraform is installed
-  ansible.builtin.shell: terraform -version
+  ansible.builtin.command: terraform -version
   register: terraform_installed
   changed_when: false
   ignore_errors: true
