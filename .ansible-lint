@@ -4,3 +4,5 @@ warn_list:
   - command-instead-of-shell
   - experimental
   - risky-shell-pipe
+  - schema[meta]
+  - no-changed-when
