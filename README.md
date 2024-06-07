@@ -3,7 +3,7 @@
 Role Description
 =========
 
-Installs [Terraform](https://www.terraform.io) for CentOS7/Stream8.
+Installs [Terraform](https://www.terraform.io) for CentOS Stream 9.
 
 Requirements
 ------------
